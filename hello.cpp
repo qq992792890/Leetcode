@@ -4,6 +4,6 @@ int main(){
     int var=0;
     std::cin>>var;
     std::cout<<var<<std::endl;
-    std::cout<<"hello"<<std::endl;
+    std::cout<<"hello once again"<<std::endl;
     return 0;
 }
