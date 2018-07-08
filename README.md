@@ -6,8 +6,8 @@ add a line
 time start from 0709   
 |WeekDay|Problem|Status|
 |:-----:|:-----:|:----:|
-|Mon|#11||
-|Tue|#16||
-|Wed|#18||
-|Thu|#55||
-|Fri|#59||
+|Mon|# 11||
+|Tue|# 16||
+|Wed|# 18||
+|Thu|# 55||
+|Fri|# 59||
