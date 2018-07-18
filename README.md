@@ -2,8 +2,8 @@
 Solutions of Leetcode Problems in CPlusPlus Version   
 first edit   
 add a line
-## About to do in next week
-array--time start from 0709  
+
+array    
 
 |WeekDay|Problem|Status|
 |:-----:|:-----:|:----:|
