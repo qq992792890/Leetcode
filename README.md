@@ -13,5 +13,3 @@ array
 |Thu|[# 55](https://leetcode.com/problems/jump-game/description/)|Not yet|
 |Fri|[# 59](https://leetcode.com/problems/spiral-matrix-ii/description/)|Not yet|    
 
-
- 
