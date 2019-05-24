@@ -49,6 +49,28 @@ void inplace_swap(int *x, int *y){
 
 }
 
+//Determine whether arguments can be added without overflow
+//例2.27 PDF98
+int uadd_ok(unsigned x, unsigned y){
+    int s = x + y;
+    if (s >= x)
+    /*if not overflow then x + y >=x, so s >= x;
+    if overflowed then: (w is the byte length)
+    s = x + y - 2^w and assume y is less than 2^w, so
+    s = x + (y - 2^w) < x
+
+    */
+    {
+        return 1;
+    } else
+    {
+        return 0;
+    }
+    return 1;
+    
+    
+}
+
 int main(int argc, char const *argv[])
 {
     //程序示例 p68(p32)
@@ -70,7 +92,7 @@ int main(int argc, char const *argv[])
     //ASCII码表中数字x的ASCII为0x3x
     //ASCII表中小写字母a-z的表示为0x61-0x7a
 
-    //联系2.10实现
+    //练习2.10实现
     printf("---- example 2.10 ----\n");
     int x210=10;
     int y210=100;
@@ -78,6 +100,23 @@ int main(int argc, char const *argv[])
     inplace_swap(&x210,&y210);
     printf("after inplace_swap:x=%d,y=%d\n",x210,y210);
 
+    //PDF84书第48页 为了便于理解补码的表示
+    printf("---- example p48 ----\n");
+    short x = 0x1234;
+    short mx = -x;
+
+    show_bytes((byte_pointer) &x, sizeof(short));
+    show_bytes((byte_pointer) &mx, sizeof(short));
+
+    //test overflow of unsigned add 
+    //判定无符号数的溢出
+    //例2.27 PDF98
+    printf("---- example 2.27 ----\n");
+    unsigned ta, tb;
+    // ta=2147483648u;
+    ta= 1u;
+    tb=0xfffffffeu;
+    printf("x + y is not overflow? %d\n",uadd_ok(ta,tb));
 
     return 0;
 }
