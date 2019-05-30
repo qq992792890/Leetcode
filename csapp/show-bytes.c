@@ -71,6 +71,55 @@ int uadd_ok(unsigned x, unsigned y){
     
 }
 
+//Determine whether arguments can be added without overflow
+//例2.30 PDF101
+//return 1 if not overflow
+int tadd_ok(int x, int y){
+    int s = x + y;
+    if (x > 0 && y > 0 && s <= 0)
+    {
+        return 0;
+    }
+    if (x < 0 && y < 0 && s >= 0)
+    {
+        return 0;
+    }
+    
+    return 1;
+}
+
+//Determine whether arguments can be added without overflow
+//例2.31 PDF101
+//return 1 if not overflow
+// this code is buggy
+int tadd_ok_bug(int x, int y){
+    int s = x + y;
+    return (s-x==y)&&(s-y==x);// this will always return 1 buggy code
+}
+//Determine whether arguments can be added without overflow
+//例2.32 PDF101
+//return 1 if not overflow
+// this code is buggy
+int tadd_ok_bug2(int x, int y){
+    // 0x80000000;
+    //补码的取反是按位取反+1 是其自身
+    return tadd_ok(x,-y);// sometimes wrong because range of numbers is not eqaul补码中最小的负数没有对应的正数表示
+    //补码的取反是按位取反+1
+    
+}
+
+
+//Determine whether arguments can be mutiplied without overflow
+//例2.35 PDF104
+//return 1 if not overflow
+int tmul_ok(int x, int y){
+    int p = x * y;
+    //either x is zero, or dividing p by x gives y
+    return !x || p/x==y;//逻辑判断当x=0，该语句在x=0时不会执行||后面的判断，因为!x已经可以得到结果 still don't know why it is right.
+}
+
+
+
 int main(int argc, char const *argv[])
 {
     //程序示例 p68(p32)
@@ -118,5 +167,23 @@ int main(int argc, char const *argv[])
     tb=0xfffffffeu;
     printf("x + y is not overflow? %d\n",uadd_ok(ta,tb));
 
+    //test overflow of int add 
+    //判定整数加法的溢出
+    //例2.30 PDF101
+    printf("---- example 2.30 ----\n");
+    int tc, td;
+    // ta=2147483648u;
+    tc= 2147483647;
+    td= 2147483612;
+    printf("x + y is not overflow? %d %d\n",tadd_ok(tc,td),tadd_ok_bug(tc,td));
+    tc= -2147483647;
+    td= -2147483612;
+    printf("x + y is not overflow? %d %d\n",tadd_ok(tc,td),tadd_ok_bug(tc,td));
+    tc= -2147483647;
+    td= 2147483612;
+    printf("x + y is not overflow? %d %d\n",tadd_ok(tc,td),tadd_ok_bug(tc,td));
+    tc= 2147483647;
+    td= -2147483612;
+    printf("x + y is not overflow? %d %d\n",tadd_ok(tc,td),tadd_ok_bug(tc,td));
     return 0;
 }
