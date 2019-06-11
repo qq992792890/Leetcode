@@ -185,5 +185,14 @@ int main(int argc, char const *argv[])
     tc= 2147483647;
     td= -2147483612;
     printf("x + y is not overflow? %d %d\n",tadd_ok(tc,td),tadd_ok_bug(tc,td));
+    // printf("%f",1.9e308);
+    
+    //整型与浮点数值转换的测试
+    //例2.54 PDF123
+    printf("---- example 2.54 ----\n");
+    float f=1.0/3;
+    float ff= -f;
+    printf("f = %f,\t-f = %f\n",f,ff);
+    printf("f == -(-f)?\t%d\n",f==ff);
     return 0;
 }
