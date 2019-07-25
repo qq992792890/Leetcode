@@ -2,6 +2,8 @@
 //to use strlen include the string.h
 #include <string.h>
 
+//第二章的大部分代码
+
 typedef unsigned char *byte_pointer;
 
 void show_bytes(byte_pointer start, size_t len){
