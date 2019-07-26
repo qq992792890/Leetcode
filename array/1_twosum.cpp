@@ -103,8 +103,7 @@ int main(int argc, char const *argv[])
     {
         cout<<res[i]<<" ";
     }
-    
-
+    cout<<std::endl;
     
 
     return 0;
