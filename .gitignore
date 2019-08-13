@@ -35,3 +35,4 @@
 # vscode files
 *.ipch
 *.bin
+.vscode/settings.json
