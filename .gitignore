@@ -35,4 +35,4 @@
 # vscode files
 *.ipch
 *.bin
-.vscode/*
+.vscode
