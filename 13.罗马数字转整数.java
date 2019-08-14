@@ -5,6 +5,7 @@
  */
 class Solution {
     public int romanToInt(String str) {
+        //this is a method taken from the top ranked
     int[] a = new int[26];
     a['I' - 'A'] = 1;
     a['V' - 'A'] = 5;
