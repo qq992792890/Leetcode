@@ -6,6 +6,7 @@
 class Solution {
 public:
     double myPow(double x, int n) {
+        //learn from official answer suggest
         long long N = n;
         if (N < 0)
         {
