@@ -1,8 +1,16 @@
-# LeetcodeInCPlusPlus
-Solutions of Leetcode Problems in CPlusPlus Version   
-Including some code for csapp in directory [csapp/](https://github.com/qq992792890/LeetcodeInCPlusPlus/tree/master/csapp), most code in csapp/ are in c language
+# Leetcode
+Solutions of Leetcode Problems in CPlusPlus mostly, some times try Java and Python   
+Including some code for csapp at directory [csapp/](https://github.com/qq992792890/Leetcode/tree/master/csapp), most code in csapp/ are in c language
 
-array    
+## Problems solved
+
+### Difficulty
+#### Easy
+1, 7, 9, 13, 14, 20, 21, 26, 27, 28, 167   
+#### Medium
+2, 3, 50, 
+  
+array  
 
 |WeekDay|Problem|Status|
 |:-----:|:-----:|:----:|
