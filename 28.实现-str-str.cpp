@@ -6,21 +6,25 @@
 class Solution {
 public:
     int strStr(string haystack, string needle) {
-        if (needle == "")
+        //simple and clear solution
+        //it is copied from the most voted one
+        int m = haystack.size(), n = needle.size();
+        for (int i = 0; i <= m - n; i++)
         {
-            return 0;
+            int j = 0;
+            for (; j < n; j++)
+            {
+                if (haystack[i + j] != needle[j])
+                {
+                    break;
+                }
+            }
+            if (j == n)
+            {
+                return i;
+            }
         }
-        if (neddle.length() > haystack.length())
-        {
-            return -1;
-        }
-        for (int i = 0; i < haystack.length(); i++)
-        {
-            //未完成
-        }
-        
-        
-        
+        return -1;
     }
 };
 
