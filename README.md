@@ -9,7 +9,9 @@ Including some code for csapp at directory [csapp/](https://github.com/qq9927928
 1, 7, 9, 13, 14, 20, 21, 26, 27, 28, 167   
 #### Medium
 2, 3, 50, 
-  
+
+Some hard core problems (a little bit harder)  
+[15.three sum](https://github.com/qq992792890/Leetcode/tree/master/Hardcore.md)   
 array  
 
 |WeekDay|Problem|Status|
