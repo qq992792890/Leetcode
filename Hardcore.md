@@ -1,5 +1,8 @@
 # Some HardCore Problems
+[TOC]
+
 ## [15.Three Sum](https://leetcode-cn.com/problems/3sum/)
+
 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
 
 注意：答案中不可以包含重复的三元组。
@@ -192,3 +195,26 @@ public:
     }
 };
 ```
+
+   
+## [5.最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)   
+给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
+
+示例 1：
+
+输入: "babad"
+输出: "bab"
+注意: "aba" 也是一个有效答案。
+示例 2：
+
+输入: "cbbd"
+输出: "bb"
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/longest-palindromic-substring
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+   
+马拉车算法Manacher 算法   
+是一种解法，为了便于处理，将给出的串统一转化为奇数回文串   
+我们将每一个字符的左边和右边都添加一个字符（这个字符是输入中所没有的）。一般都为#。比如说abc和abcd这两个串转化后就为#a#b#c#和#a#b#c#d#。长度分别为7和9这样无论奇偶都能被转换成奇数回文串了. 其实在我看来,Manacher就是优化后的中心检测法,和KMP算法类似,Manacher的思想也是避免”匹配”失败后的下标回退   
+转载注明出自 bestsort.cn,谢谢合作
