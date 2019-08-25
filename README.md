@@ -11,6 +11,7 @@ Including some code for csapp at directory [csapp/](https://github.com/qq9927928
 2, 3, 50, 
 
 Some hard core problems (a little bit harder)  
+For detail you can see pages here[Hardcore](https://github.com/qq992792890/Leetcode/blob/master/Hardcore.md)   
 [15.three sum](https://github.com/qq992792890/Leetcode/tree/master/Hardcore.md)   
 array  
 
