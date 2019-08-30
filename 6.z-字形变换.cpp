@@ -11,7 +11,7 @@ public:
         string str0;
         int end = 0;
 
-        //problems unsolved now ,waiting to be done 
+        //problems solved 190825, by the plan of myself 
         for (int j = 0; j < numRows; j++)
         {
             res.push_back(str0);
@@ -19,35 +19,23 @@ public:
         
         while (pos < size_s)
         {
-            if (pos + numRows > size_s)
+            for (i = 0; i < numRows && pos < size_s; i++)
             {
-                end = size_s - pos;
-            }else
-            {
-                end = numRows;
+                res[i].push_back(s[pos++]);
             }
+            if (pos >= size_s) break; 
             
             
-            for (i = 0; i < end; i++)
-            {
-                res[i].push_back(s[pos]);
-                pos++;
-            }
             //i = numRows - 1;
 
-            if (pos + numRows - 2 > size_s)
-            {
-                end = size_s - pos;
-            }
-            else
-            {
-                end = numRows;
-            }
-            for (i = numRows - 2; i > numRows - 2 - end; i--)
+            
+            for (i = numRows - 2; i > 0 && pos < size_s ; i--)
             {
                 res[i].push_back(s[pos]);
                 pos++;
             }
+            if (pos >= size_s) break; 
+            
 
         }
         

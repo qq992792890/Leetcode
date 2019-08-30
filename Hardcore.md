@@ -1,8 +1,8 @@
 # Some HardCore Problems
 [TOC]
 
-未完成题目  有些难度（还是从简单题开始入手比较好）
-5.最长回文子串  6.z-字形变换
+未完成题目  有些难度（还是从简单题开始入手比较好）  
+5.最长回文子串（未完成）  6.z-字形变换（已完成190825）
 ## [15.Three Sum](https://leetcode-cn.com/problems/3sum/)
 
 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
@@ -220,3 +220,42 @@ public:
 是一种解法，为了便于处理，将给出的串统一转化为奇数回文串   
 我们将每一个字符的左边和右边都添加一个字符（这个字符是输入中所没有的）。一般都为#。比如说abc和abcd这两个串转化后就为#a#b#c#和#a#b#c#d#。长度分别为7和9这样无论奇偶都能被转换成奇数回文串了. 其实在我看来,Manacher就是优化后的中心检测法,和KMP算法类似,Manacher的思想也是避免”匹配”失败后的下标回退   
 转载注明出自 bestsort.cn,谢谢合作
+
+## [6.Z字形变换](https://leetcode-cn.com/problems/zigzag-conversion/)  
+方法一：按行排序    我想到和使用的方法
+思路
+
+通过从左向右迭代字符串，我们可以轻松地确定字符位于 Z 字形图案中的哪一行。
+
+算法
+
+我们可以使用 \text{min}( \text{numRows}, \text{len}(s))min(numRows,len(s)) 个列表来表示 Z 字形图案中的非空行。
+
+从左到右迭代 ss，将每个字符添加到合适的行。可以使用当前行和当前方向这两个变量对合适的行进行跟踪。
+
+只有当我们向上移动到最上面的行或向下移动到最下面的行时，当前方向才会发生改变。
+
+作者：LeetCode
+链接：https://leetcode-cn.com/problems/zigzag-conversion/solution/z-zi-xing-bian-huan-by-leetcode/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+方法二：按行访问   
+思路
+
+按照与逐行读取 Z 字形图案相同的顺序访问字符串。
+
+算法
+
+首先访问 行 0 中的所有字符，接着访问 行 1，然后 行 2，依此类推...
+
+对于所有整数 kk，
+
+行 00 中的字符位于索引 k \; (2 \cdot \text{numRows} - 2)k(2⋅numRows−2) 处;
+行 \text{numRows}-1numRows−1 中的字符位于索引 k \; (2 \cdot \text{numRows} - 2) + \text{numRows} - 1k(2⋅numRows−2)+numRows−1 处;
+内部的 行 ii 中的字符位于索引 k \; (2 \cdot \text{numRows}-2)+ik(2⋅numRows−2)+i 以及 (k+1)(2 \cdot \text{numRows}-2)- i(k+1)(2⋅numRows−2)−i 处;
+
+作者：LeetCode
+链接：https://leetcode-cn.com/problems/zigzag-conversion/solution/z-zi-xing-bian-huan-by-leetcode/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
