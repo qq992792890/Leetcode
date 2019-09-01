@@ -4,7 +4,34 @@
 未完成题目  有些难度（还是从简单题开始入手比较好）  
 5.最长回文子串（未完成）  6.z-字形变换（已完成190825）   
    
+
+## [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)  
+为什么说求平方根硬核呢，因为虽然这个题目能用其他方法解出来但是万万没想到还有这么简单的方法就可以解出来   
+那就是！！！！   
+牛顿迭代法   
+求平方根也就是说```x^2 = a so that x = sqrt(a)```   
+而要求解```x^2 = a```实际上是```x^2 - a = y```在x轴上的根
+这个怎么算呢在不知道平方根怎么计算的情况下，我们已知直线在坐标轴上的根的求法 在```x^2 - a = y```的图像上在任意一点x处做出切线求与坐标轴交点即可慢慢逼近   
+思路如下   
+```
+计算x2 = n的解，令f(x)=x2-n，相当于求解f(x)=0的解，如左图所示。
+
+   首先取x0，如果x0不是解，做一个经过(x0,f(x0))这个点的切线，与x轴的交点为x1。    
    
+   同样的道理，如果x1不是解，做一个经过(x1,f(x1))这个点的切线，与x轴的交点为x2。   
+   
+   以此类推。   
+     
+   以这样的方式得到的xi会无限趋近于f(x)=0的解。   
+   
+   判断xi是否是f(x)=0的解有两种方法：   
+   
+   一是直接计算f(xi)的值判断是否为0，二是判断前后两个解xi和xi-1是否无限接近。   
+经过(xi, f(xi))这个点的切线方程为f(x) = f(xi) + f’(xi)(x - xi)，其中f'(x)为f(x)的导数，本题中为2x。令切线方程等于0   
+```
+即可算出x[i+1] = {a/x[i] + x}/2
+
+
 ## [53.最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)   
  从第一个数开始，向右加上最大的正连续子集，减去左边做大的连续负连续子集
         此算法麻烦且不全，需要考虑很多情况
@@ -398,3 +425,81 @@ public:
 链接：https://leetcode-cn.com/problems/zigzag-conversion/solution/z-zi-xing-bian-huan-by-leetcode/
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## [67. 二进制求和](https://leetcode-cn.com/problems/add-binary/)    
+最不硬核的题目之一 采用加法器原理轻松解决   
+0ms或4ms 算法加法器原理   
+先把两个字符串中短的一个前面补零，使的长度一致   
+从后往前按位相加，再加上进位（溢出）。相加溢出进位置为1   
+最后判断一溢出位   
+有溢出位则在结果前面插入‘1’即可   
+```c++
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        //加法器原理
+        //1 转为二进制相加后用字符串表示
+        //2 直接对二进制字符串进行运算，以较长的字符串作为循环体
+        int size_a = a.size();
+        int size_b = b.size();
+        string res;
+        char sum;
+        int overflow;
+        if (size_a > size_b)
+        {
+            b.insert(b.begin(), size_a - size_b, '0');
+        }else if (size_a < size_b)
+        {
+            a.insert(a.begin(), size_b - size_a, '0');
+        }
+        
+        size_a = a.size();
+        overflow = 0;
+        for (int i = size_a - 1; i >= 0; i--)
+        {
+            sum = char(a[i] - '0' + b[i] + overflow);
+            if (sum > '1')
+            {
+                sum = char(sum - 2);
+                overflow = 1;
+                res.insert(res.begin(), sum);
+
+            }else
+            {
+                overflow = 0;
+                res.insert(res.begin(), sum);
+            }
+        }
+        if (overflow == 1)
+        {
+            res.insert(res.begin(), '1');
+        }
+        return res;
+        
+        
+    }
+};
+```
+
+## [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)    
+这个问题让人想到上来就递归，但是出题者显然不是让你这么做的，45个case过了21个就超出时间限制   
+因为递归需要大量出栈入栈操作及其浪费时间   
+因此将递归改为循环推演法比较合适   
+```c++
+/*
+ * @lc app=leetcode.cn id=70 lang=cpp
+ *
+ * [70] 爬楼梯
+ */
+class Solution {
+public:
+    int climbStairs(int n) {
+        //走一级台阶后剩下台阶的总可能数 + 走两级台阶后剩下台阶的走法
+        if (n == 0) return 0; 
+        if (n == 1) return 1; 
+        if (n == 2) return 2;  
+        return climbStairs(n - 1) + climbStairs(n - 2);
+    }
+};   
+```
+改为循环推演
