@@ -503,3 +503,84 @@ public:
 };   
 ```
 改为循环推演
+
+   
+   88.合并两个有序数组
+已知
+我的垃圾方法 还没通过
+```c++
+/*
+ * @lc app=leetcode.cn id=88 lang=cpp
+ *
+ * [88] 合并两个有序数组
+ */
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int j =0;
+        for (int i = 0; i < n; i++)
+        {
+            while (nums2[i] < nums1[0])//插入头部
+            {
+                nums1.insert(nums1.begin(),nums2[i]);
+                continue;
+            }
+            
+            for (j = 0; j < m + n; j++)//插入中间
+            {
+                if (nums2[i] >= nums1[j])
+                {
+                    continue;
+                }
+                //nums2[i] < nums1[j];
+                nums1.insert(nums1.begin() + j, nums2[i]);
+                break;
+            }
+            if (j <= n + m && i < n)//插入尾部 未完成
+            {
+                for ( ; i < n; i++)
+                {
+                    nums1.insert(nums1.begin() + j, nums2[i]);
+                }
+                
+            }
+            
+            
+            
+        }
+        
+    }
+};
+
+
+```
+   
+   很快我就想到了新的方法，数组最总形态是长度m+n且给出的nums1长度是m+n那么直接在nums1的尾部插入两者尾部最大值即可，只需比较两者的尾部谁最大，插入nums1的形成新的尾部即可
+   参考高票回答就是这样子
+   ```c++
+   class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i = m - 1, j = n - 1, tar = m + n - 1;
+        while (j >= 0) {
+            nums1[tar--] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
+        }
+    }
+};
+   ```
+   多么简洁的解决方案
+   下面是看起来相似的一个解决方案却不能通过因为i>=0不满足时仍会访问nums1[i]导致内存溢出 所以出错必须修改到上述版本才可通过，时间在8-12ms 看起来还不错
+   ```c++
+   class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i = m - 1, j = n - 1;
+        int tail = m + n - 1;
+        while (j >= 0)
+        {
+            nums1[tail--] = i >= 0 && nums2[j] >= nums1[i] ? nums2[j--] : nums1[i--];
+        }
+
+    }
+};
+   ```
