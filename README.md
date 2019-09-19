@@ -6,14 +6,17 @@ Including some code for csapp at directory [csapp/](https://github.com/qq9927928
 
 ### Difficulty
 #### Easy
-1, 7, 9, 13, 14, 20, 21, 26, 27, 28, 167   
+1, 7, 9, 13, 14, 20, 21, 26, 27, 28, 167......   
 #### Medium
-2, 3, 50, 
+2, 3, 50...... 
 
 Some hard core problems (a little bit harder)  
 For detail you can see pages here[Hardcore](https://github.com/qq992792890/Leetcode/blob/master/Hardcore.md)   
+I take some notes here
+[Note](https://github.com/qq992792890/Leetcode/blob/master/Note.md)   
 [15.three sum](https://github.com/qq992792890/Leetcode/tree/master/Hardcore.md)   
-array  
+   
+array （暂时废弃）   
 
 |WeekDay|Problem|Status|
 |:-----:|:-----:|:----:|
