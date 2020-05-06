@@ -8,7 +8,7 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        //看到困难的题就，嗯。。。有借鉴了
+        //看到困难的题就，嗯。。。又借鉴了
         int maxPos = 0, n = nums.size(), end = 0, step = 0;
         for (int i = 0; i < n - 1; ++i) {
             if (maxPos >= i) {
