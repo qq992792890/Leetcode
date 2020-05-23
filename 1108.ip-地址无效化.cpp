@@ -6,6 +6,8 @@
 class Solution {
 public:
     string defangIPaddr(string address) {
+        
+        //解法一
         int size_s = address.size();
         for (int i = 0; i < size_s; i++)
         {
@@ -18,6 +20,17 @@ public:
             
         }
         return address;
+        //解法一
+        
+
+        //解法二 //未完成
+        // string res = "";
+        // for (char i = 0; i < count; i++)
+        // {
+        //     /* code */
+        // }
+        
+        //解法二
     }
 };
 
