@@ -153,7 +153,7 @@ public:
 };
 ```
 但是仍然只能通过168/230个测试样例
-赞最多的答案是这个
+赞最多的答案是这个 不太理解其含义
 ```c++
  int longestValidParentheses(string s) {
         int cnt = 0; // count of "("
